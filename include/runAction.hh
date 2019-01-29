@@ -3,6 +3,7 @@
 
 #include "G4UserRunAction.hh"
 #include "globals.hh"
+#include <vector>
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -19,6 +20,8 @@ class RunAction : public G4UserRunAction
 
    virtual void BeginOfRunAction(const G4Run*);
    virtual void EndOfRunAction(const G4Run*);
+
+   std::vector<G4int> NumberOfC14;
 };
 
 

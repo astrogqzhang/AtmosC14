@@ -9,7 +9,7 @@ class EventAction : public G4UserEventAction
         EventAction();
         ~EventAction();
 
-        virtual void EndOfEventAction(const G4Event *anEvent);
+        virtual void EndOfEventAction(const G4Event* anEvent);
 };
 
 #endif
