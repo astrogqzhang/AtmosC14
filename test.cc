@@ -15,7 +15,11 @@
 
 
 #include "Randomize.hh"
+#include <vector>
+#include <fstream>
 
+
+extern std::vector<int> carbon14;
 
 int main(int argc, char const *argv[])
 {
@@ -45,6 +49,13 @@ int main(int argc, char const *argv[])
     G4String command = "/control/execute ";
     G4String fileName = argv[1];
     UI->ApplyCommand(command + fileName);
+
+    std::ofstream output;
+    output.open("test.txt");
+    for (auto i : carbon14) {
+        output << i << "\n";
+    }
+    output.close();
 
     delete runManager;
     return 0;

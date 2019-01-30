@@ -4,6 +4,8 @@
 #include "G4VTrajectory.hh" 
 #include <vector>
 
+extern std::vector<int> carbon14;
+
 EventAction::EventAction(): G4UserEventAction() {}
 
 EventAction::~EventAction() {}
@@ -11,8 +13,14 @@ EventAction::~EventAction() {}
 void EventAction::EndOfEventAction(const G4Event* anEvent)
 {
     G4TrajectoryContainer* container = anEvent->GetTrajectoryContainer();
-    TrajectoryVector travec = container->GetVector();
-    for (auto i: travec) {
-
+    G4int n_trajectory = container->size();
+    G4int n_carbon = 0;
+    for (size_t i = 0; i < n_trajectory; i++) {
+        G4VTrajectory* tra = (*container)[i];
+        G4int pdgcode = tra->GetPDGEncoding();
+        if (pdgcode >= 1000060140 & pdgcode <= 1000060144) {
+            n_carbon += 1;
+        }
     }
+    carbon14.push_back(n_carbon);
 }
