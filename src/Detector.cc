@@ -11,6 +11,9 @@
 #include "G4PVPlacement.hh"
 
 
+Detector::Detector() {}
+Detector::~Detector() {}
+
 G4VPhysicalVolume* Detector::Construct()
 {
     // World
