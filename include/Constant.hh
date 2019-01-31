@@ -14,4 +14,6 @@ class NumberOfC14
     private:
         static std::vector<int> vecNumberOfC14;
 
-}
+};
+
+#endif
