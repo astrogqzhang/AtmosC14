@@ -5,7 +5,7 @@
 #include <vector>
 
 // global variables
-std::vector<int> carbon14;
+
 
 
 class EventAction : public G4UserEventAction

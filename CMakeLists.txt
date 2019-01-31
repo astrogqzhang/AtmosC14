@@ -2,6 +2,7 @@ cmake_minimum_required (VERSION 3.0)
 project(Geant4) 
 
 # include file
+find_package(Geant4 REQUIRED)
 include(${Geant4_USE_FILE})
 
 # Locate sources and headers for this project
@@ -14,4 +15,4 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include(/*.hh))
 
 
 add_executable(Demo test.cc ${sources} ${headers})
-target_link_libraries(Demo ${Geant4_LIBRARIES} ${AIDA_LIBRARIES})
+target_link_libraries(Demo ${Geant4_LIBRARIES})

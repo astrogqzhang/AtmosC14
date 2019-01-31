@@ -1,4 +1,4 @@
-#include "PrimaryGeneratirAction.hh"
+#include "PrimaryGeneratorAction.hh"
 
 #include "G4Event.hh"
 #include "G4GeneralParticleSource.hh"
@@ -19,7 +19,7 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction()
     delete fParticleGun;
 }
 
-void PrimaryGeneratorActin::GeneratePrimaries(G4Event* anEvent)
+void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
     fParticleGun->GeneratePrimaryVertex(anEvent);
 }

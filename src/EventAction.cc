@@ -2,9 +2,9 @@
 #include "G4Event.hh"
 #include "G4TrajectoryContainer.hh"
 #include "G4VTrajectory.hh" 
+#include "Constant.hh"
 #include <vector>
 
-extern std::vector<int> carbon14;
 
 EventAction::EventAction(): G4UserEventAction() {}
 
@@ -22,5 +22,6 @@ void EventAction::EndOfEventAction(const G4Event* anEvent)
             n_carbon += 1;
         }
     }
-    carbon14.push_back(n_carbon);
+    NumberOfC14 number;
+    number.push_back(n_carbon);
 }

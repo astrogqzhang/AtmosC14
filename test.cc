@@ -15,11 +15,11 @@
 
 
 #include "Randomize.hh"
+#include "Constant.hh"
 #include <vector>
 #include <fstream>
 
 
-extern std::vector<int> carbon14;
 
 int main(int argc, char const *argv[])
 {
@@ -50,12 +50,15 @@ int main(int argc, char const *argv[])
     G4String fileName = argv[1];
     UI->ApplyCommand(command + fileName);
 
+    NumberOfC14 Cnumber;
+    std::vector<int> vec = Cnumber.GetNumberOfC14();
     std::ofstream output;
-    output.open("test.txt");
-    for (auto i : carbon14) {
+    output.open("out.txt");
+    for (auto i : vec) {
         output << i << "\n";
     }
     output.close();
+
 
     delete runManager;
     return 0;
