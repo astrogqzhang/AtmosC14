@@ -1,29 +1,19 @@
 /event/verbose 0
 /tracking/storeTrajectory 1
 
-# Energy function
-# /gps/verbose 2
-# /gps/particle gamma
-# /gps/pos/type Plane
-# /gps/pos/shape Square
-# /gps/pos/centre 0 0 90 km
-# /gps/pos/halfx 0.5 km
-# /gps/pos/halfy 0.5 km
-# /gps/ene/type Pow
-# /gps/ene/min 2. MeV
-# /gps/ene/max 10. MeV
-# /gps/ene/alpha -2
+/run/initialize
 
 /gps/verbose 2
 /gps/particle gamma
 /gps/pos/type Plane
+/gps/pos/shape Square
+/gps/pos/centre 0 0 90 km
 /gps/pos/halfx 0.5 km
 /gps/pos/halfy 0.5 km
-/gps/pos/centre 0 0 90 km
-/gps/direction 0 0 -1
-/gps/ene/mono 1000
+/gps/ene/type Pow
+/gps/ene/min 2. MeV
+/gps/ene/max 10. MeV
+/gps/ene/alpha -2
 
 
-
-/run/initialize
 /run/beamOn 1000
