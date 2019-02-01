@@ -8,6 +8,7 @@ class NumberOfC14
     public:
         NumberOfC14();
         ~NumberOfC14();
+
         void push_back(const int& number);
         std::vector<int>& GetNumberOfC14();
 
