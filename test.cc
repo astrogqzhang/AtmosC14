@@ -17,6 +17,7 @@
 #include "Randomize.hh"
 #include "Constant.hh"
 #include <vector>
+#include <iostream>
 #include <fstream>
 
 
