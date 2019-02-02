@@ -16,6 +16,7 @@
 
 #include "Randomize.hh"
 #include "Constant.hh"
+#include "G4SystemOfUnits.hh"
 #include <vector>
 #include <iostream>
 #include <fstream>
