@@ -18,7 +18,7 @@ void EventAction::EndOfEventAction(const G4Event* anEvent)
     for (size_t i = 0; i < n_trajectory; i++) {
         G4VTrajectory* tra = (*container)[i];
         G4int pdgcode = tra->GetPDGEncoding();
-        if (pdgcode >= 1000060140 & pdgcode <= 1000060144) {
+        if (pdgcode >= 1000060140 & pdgcode <= 1000060149) {
             n_carbon += 1;
         }
     }
