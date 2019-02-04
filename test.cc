@@ -42,7 +42,6 @@ int main(int argc, char const *argv[])
     // Physics list
     G4VModularPhysicsList* physicsList = new QGSP_BERT_HP;
     physicsList->SetVerboseLevel(1);
-    physicsList->SetCuts();
     runManager->SetUserInitialization(physicsList);
     runManager->SetUserInitialization(new Action);    
 
