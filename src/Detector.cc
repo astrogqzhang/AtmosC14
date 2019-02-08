@@ -60,7 +60,7 @@ G4VPhysicalVolume* Detector::Construct()
     std::vector<G4LogicalVolume*> AtmosLV; 
     for (size_t i = 0; i < this->altitude.size(); i++) {
         AtmosLV.push_back(new G4LogicalVolume(AtmosBin, Airs[i], "AtmosLV" + std::to_string(altitude[i])));
-        new G4PVPlacement(0, G4ThreeVector(0, 0, -43 * km + altitude[i]), AtmosLV[i], "AtmosP"+std::to_string(altitude[i]), logicWorld, false, 0, 0);
+        new G4PVPlacement(0, G4ThreeVector(0, 0, -43 * km + altitude[i]), "AtmosP"+std::to_string(altitude[i]), AtmosLV[i],physWorld, false, 0, 0);
     }
     return physWorld;
 }

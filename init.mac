@@ -16,9 +16,9 @@
 # /gps/ene/alpha -2
 
 /gps/verbose 0
-/gps/particle gamma
+/gps/particle gamma 
 /gps/pos/type Point 
-/gps/pos/centre 0 0 43 km
+/gps/pos/centre 0 0 0 km
 /gps/direction 0 0 -1
 /gps/ene/mono 30 MeV
 /gps/number 500
