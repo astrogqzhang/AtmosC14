@@ -36,8 +36,8 @@ Detector::~Detector() {}
 G4VPhysicalVolume* Detector::Construct()
 {
     // World
-    G4double World_x = 5 * cm;
-    G4double World_y = 5 * cm;
+    G4double World_x = 40 * km;
+    G4double World_y = 40 * km;
     G4double World_z = 43.5 * km;
 
     G4NistManager* man = G4NistManager::Instance();
@@ -51,8 +51,8 @@ G4VPhysicalVolume* Detector::Construct()
 
 
     // U.S. Standard Atmosphere 1976
-    G4double Bin_x = 5 * cm;
-    G4double Bin_y = 5 * cm;
+    G4double Bin_x = 40 * km;
+    G4double Bin_y = 40 * km;
     G4double Bin_z = 0.5 * km;
 
     G4Box* AtmosBin = new G4Box("AtmosBin", Bin_x, Bin_y, Bin_z);

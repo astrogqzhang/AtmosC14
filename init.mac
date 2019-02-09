@@ -3,24 +3,23 @@
 
 /run/initialize
 # Energy function
-# /gps/verbose 2
-# /gps/particle gamma
-# /gps/pos/type Plane
-# /gps/pos/shape Square
-# /gps/pos/centre 0 0 90 km
-# /gps/pos/halfx 0.5 km
-# /gps/pos/halfy 0.5 km
-# /gps/ene/type Pow
-# /gps/ene/min 2. MeV
-# /gps/ene/max 10. MeV
-# /gps/ene/alpha -2
-
 /gps/verbose 0
-/gps/particle gamma 
-/gps/pos/type Point 
+/gps/particle gamma
+/gps/pos/type Point
 /gps/pos/centre 0 0 43.5 km
+/gps/ene/type Pow
 /gps/direction 0 0 -1
-/gps/ene/mono 30 MeV
-/gps/number 500
+/gps/ene/min 1. MeV
+/gps/ene/max 100. MeV
+/gps/ene/alpha -1.1
+/gps/number 3000
+
+# /gps/verbose 0
+# /gps/particle gamma 
+# /gps/pos/type Point 
+# /gps/pos/centre 0 0 43.5 km
+# /gps/direction 0 0 -1
+# /gps/ene/mono 30 MeV
+# /gps/number 500
 
 /run/beamOn 1000
