@@ -21,4 +21,4 @@
 # /gps/ene/mono 30 MeV
 # /gps/number 500
 
-/run/beamOn 10000
+/run/beamOn 10000000
