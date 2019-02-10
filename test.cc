@@ -55,8 +55,8 @@ int main(int argc, char const *argv[])
     std::vector<int> vec = Cnumber.GetNumberOfC14();
     std::ofstream output;
     output.open("out.txt");
-    for (auto i : vec) {
-        output << i << "\n";
+    for (size_t i = 0; i < vec.size(); i++) {
+        output << vec[i] << "  "<< Cnumber.vecEnergy[i] << "\n";
     }
     output.close();
 

@@ -3,7 +3,9 @@
 #include "G4TrajectoryContainer.hh"
 #include "G4VTrajectory.hh" 
 #include "Constant.hh"
+#include "G4SystemOfUnits.hh"
 #include <vector>
+#include <iostream>
 
 
 EventAction::EventAction(): G4UserEventAction() {}
@@ -13,6 +15,7 @@ EventAction::~EventAction() {}
 void EventAction::EndOfEventAction(const G4Event* anEvent)
 {
     G4TrajectoryContainer* container = anEvent->GetTrajectoryContainer();
+    G4double ene = anEvent->GetPrimaryVertex()->GetPrimary()->GetKineticEnergy();
     G4int n_trajectory = container->size();
     G4int n_carbon = 0;
     for (size_t i = 0; i < n_trajectory; i++) {
@@ -24,4 +27,5 @@ void EventAction::EndOfEventAction(const G4Event* anEvent)
     }
     NumberOfC14 number;
     number.push_back(n_carbon);
+    number.vecEnergy.push_back(ene);
 }
