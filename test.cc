@@ -10,7 +10,7 @@
 
 #include "G4UImanager.hh"
 #include "QGSP_BERT_HP.hh"
-
+#include "QGSP_BIC_HP.hh"
 #include "G4UIExecutive.hh"
 
 
@@ -40,7 +40,8 @@ int main(int argc, char const *argv[])
     runManager->SetUserInitialization(new Detector());
 
     // Physics list
-    G4VModularPhysicsList* physicsList = new QGSP_BERT_HP;
+    // G4VModularPhysicsList* physicsList = new QGSP_BERT_HP;
+    G4VModularPhysicsList* physicsList = new QGSP_BIC_HP;
     physicsList->SetVerboseLevel(1);
     runManager->SetUserInitialization(physicsList);
     runManager->SetUserInitialization(new Action);    
