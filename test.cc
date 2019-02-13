@@ -40,8 +40,8 @@ int main(int argc, char const *argv[])
     runManager->SetUserInitialization(new Detector());
 
     // Physics list
-    // G4VModularPhysicsList* physicsList = new QGSP_BERT_HP;
-    G4VModularPhysicsList* physicsList = new QGSP_BIC_HP;
+    G4VModularPhysicsList* physicsList = new QGSP_BERT_HP;
+    // G4VModularPhysicsList* physicsList = new QGSP_BIC_HP;
     physicsList->SetVerboseLevel(1);
     runManager->SetUserInitialization(physicsList);
     runManager->SetUserInitialization(new Action);    
@@ -57,7 +57,7 @@ int main(int argc, char const *argv[])
     std::ofstream output;
     output.open("out.txt");
     for (size_t i = 0; i < vec.size(); i++) {
-        output << vec[i] << "  "<< Cnumber.vecEnergy[i] << "\n";
+        output << vec[i] << "  "<< Cnumber.vecCl[i] << "\n";
     }
     output.close();
 

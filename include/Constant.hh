@@ -13,6 +13,7 @@ class NumberOfC14
         std::vector<int>& GetNumberOfC14();
 
         static std::vector<int> vecNumberOfC14;
+	static std::vector<int> vecCl;
         static std::vector<double> vecEnergy;
 
 };

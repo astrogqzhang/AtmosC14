@@ -2,6 +2,7 @@
 #include <vector>
 
 std::vector<int> NumberOfC14::vecNumberOfC14;
+std::vector<int> NumberOfC14::vecCl;
 std::vector<double> NumberOfC14::vecEnergy;
 NumberOfC14::NumberOfC14() {}
 NumberOfC14::~NumberOfC14() {}
