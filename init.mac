@@ -10,7 +10,7 @@
 /gps/ene/type Pow
 /gps/direction 0 0 -1
 /gps/ene/min 1. MeV
-/gps/ene/max 100. MeV
+/gps/ene/max 300. MeV
 /gps/ene/alpha -1.1
 
 # /gps/verbose 0
@@ -21,4 +21,4 @@
 # /gps/ene/mono 30 MeV
 # /gps/number 500
 
-/run/beamOn 1000000
+/run/beamOn 3000000
