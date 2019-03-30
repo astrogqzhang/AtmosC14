@@ -17,7 +17,7 @@
 Detector::Detector() 
 {
     std::ifstream input;
-    input.open("Atmosphere.dat");
+    input.open("data/Atmosphere.dat");
     if (!input) std::cout << "Error" << std::endl;
     G4double tmpAltitude;
     G4double tmpDensity;

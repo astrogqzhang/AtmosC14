@@ -1,32 +1,67 @@
-#include "/home/gqzhang/software/Geant/include/Geant4/G4RunManager.hh"
-#include "/home/gqzhang/software/Geant/include/Geant4/G4UImanager.hh"
+#include "Detector.hh"
+#include "Action.hh"
 
-#include "/home/gqzhang/software/Geant/include/Geant4/ExG4DetectorConstruction01.hh"
-#include "/home/gqzhang/software/Geant/include/Geant4/ExG4PhysicaList00.hh"
-#include "/home/gqzhang/software/Geant/include/Geant4/ExG4ActionInitialization01.hh"
+#ifdef G4MULTITHREADED
+#include "G4MTRunManager.hh"
+#else
+#include "G4RunManager.hh"
+#endif
 
-int main()
+
+#include "G4UImanager.hh"
+#include "QGSP_BERT_HP.hh"
+#include "QGSP_BIC_HP.hh"
+#include "G4UIExecutive.hh"
+
+
+#include "Randomize.hh"
+#include "Constant.hh"
+#include "G4SystemOfUnits.hh"
+#include <vector>
+#include <iostream>
+#include <fstream>
+
+
+
+int main(int argc, char const *argv[])
 {
-  G4RunManager* runManager = new G4RunManager;
+    G4Random::setTheEngine(new CLHEP::RanecuEngine);
+    G4int seconds = time(NULL);
+    G4Random::setTheSeed(seconds);
 
-  runManager->SetUserInitialization(new ExG4DetectorConstruction01);
-  runManager->SetUserInitialization(new ExG4PhysicsList00);
-  runManager->SetUserInitialization(new ExG4ActionInitialization01);
+    // Construct the default run manager
+    #ifdef G4MULTITHREADED
+        G4MTRunManager* runManager = new G4MTRunManager;
+    #else
+        G4RunManager* runManager = new G4RunManager;
+    #endif
 
-  // initialize G4 kernel
-  runManager->Initialize();
+    // Construct Detector
+    runManager->SetUserInitialization(new Detector());
 
-  // get the pointer to the UI manager and set verbosities
-  G4UImanager* UI = G4UImanager::GetUIpointer();
-  UI->ApplyCommand("/run/verbose 1");
-  UI->ApplyCommand("/event/verbose 1");
-  UI->ApplyCommand("/tracking/verbose 1");
+    // Physics list
+    // G4VModularPhysicsList* physicsList = new QGSP_BERT_HP;
+    G4VModularPhysicsList* physicsList = new QGSP_BIC_HP;
+    physicsList->SetVerboseLevel(1);
+    runManager->SetUserInitialization(physicsList);
+    runManager->SetUserInitialization(new Action);    
 
-  // start a run
-  int numberOfEvent = 3;
-  runManager->BeamOn(numberOfEvent);
 
-  // job termination
-  delete runManager;
-  return 0;
+    G4UImanager* UI = G4UImanager::GetUIpointer();
+    G4String command = "/control/execute ";
+    G4String fileName = argv[1];
+    UI->ApplyCommand(command + fileName);
+
+    NumberOfC14 Cnumber;
+    std::vector<int> vec = Cnumber.GetNumberOfC14();
+    std::ofstream output;
+    output.open("out.txt");
+    for (size_t i = 0; i < vec.size(); i++) {
+        output << vec[i] << "  "<< Cnumber.vecCl[i] << "\n";
+    }
+    output.close();
+
+
+    delete runManager;
+    return 0;
 }
