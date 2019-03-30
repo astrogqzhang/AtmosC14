@@ -33,5 +33,5 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 #----------------------------------------------------------------------------
 # Add the executable, and link it to the Geant4 libraries
 #
-add_executable(Demo test.cc ${sources} ${headers})
+add_executable(Demo main.cc ${sources} ${headers})
 target_link_libraries(Demo ${Geant4_LIBRARIES})
