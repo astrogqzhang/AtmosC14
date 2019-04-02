@@ -18,20 +18,24 @@ void EventAction::EndOfEventAction(const G4Event* anEvent)
     G4double ene = anEvent->GetPrimaryVertex()->GetPrimary()->GetKineticEnergy();
     G4int n_trajectory = container->size();
     G4int n_carbon = 0;
+    G4int n_Be = 0;
     G4int n_cl = 0;
     for (size_t i = 0; i < n_trajectory; i++) {
         G4VTrajectory* tra = (*container)[i];
         G4int pdgcode = tra->GetPDGEncoding();
-        // if (pdgcode >= 1000060140 & pdgcode <= 1000060149) {
-	if (pdgcode >= 1000040100 & pdgcode <= 1000040109){
-		n_cl += 1;
-	}
-	if (pdgcode >= 1000170360 & pdgcode <= 1000170369){
+        if (pdgcode >= 1000060140 & pdgcode <= 1000060149) {
             n_carbon += 1;
+        } 
+	    if (pdgcode >= 1000040100 & pdgcode <= 1000040109){
+		    n_Be += 1;
+	    }
+	    if (pdgcode >= 1000170360 & pdgcode <= 1000170369){
+            n_cl += 1;
         }
     }
-    NumberOfC14 number;
-    number.push_back(n_carbon);
-    // number.vecEnergy.push_back(ene);
+    Number number;
+    number.vecC.push_back(n_carbon);
+    number.vecBe.push_back(n_Be);
+    number.vecEnergy.push_back(ene);
     number.vecCl.push_back(n_cl);
 }

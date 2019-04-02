@@ -1,20 +1,10 @@
 #include "Constant.hh"
 #include <vector>
 
-std::vector<int> NumberOfC14::vecNumberOfC14;
-std::vector<int> NumberOfC14::vecCl;
-std::vector<double> NumberOfC14::vecEnergy;
-NumberOfC14::NumberOfC14() {}
-NumberOfC14::~NumberOfC14() {}
+std::vector<int> Number::vecC;
+std::vector<int> Number::vecBe;
+std::vector<int> Number::vecCl;
+std::vector<double> Number::vecEnergy;
+Number::Number() {}
+Number::~Number() {}
 
-
-
-void NumberOfC14::push_back(const int& number)
-{
-    this->vecNumberOfC14.push_back(number);
-}
-
-std::vector<int>& NumberOfC14::GetNumberOfC14()
-{
-    return this->vecNumberOfC14;
-}

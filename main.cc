@@ -52,12 +52,13 @@ int main(int argc, char const *argv[])
     G4String fileName = argv[1];
     UI->ApplyCommand(command + fileName);
 
-    NumberOfC14 Cnumber;
-    std::vector<int> vec = Cnumber.GetNumberOfC14();
+    // Output results
+    // | Ene | C14 | Be10 | Cl36 |
+    Number number;
     std::ofstream output;
     output.open("out.txt");
-    for (size_t i = 0; i < vec.size(); i++) {
-        output << vec[i] << "  "<< Cnumber.vecCl[i] << "\n";
+    for (size_t i = 0; i < number.vecC.size(); i++) {
+        output << number.vecEnergy[i] << " " << number.vecC[i] << " " << number.vecBe[i] << " " <<  number.vecCl[i] << "\n";
     }
     output.close();
 

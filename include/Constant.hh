@@ -3,16 +3,14 @@
 
 #include <vector> 
 
-class NumberOfC14
+class Number
 {
     public:
-        NumberOfC14();
-        ~NumberOfC14();
+        Number();
+        ~Number();
 
-        void push_back(const int& number);
-        std::vector<int>& GetNumberOfC14();
-
-        static std::vector<int> vecNumberOfC14;
+        static std::vector<int> vecC;
+        static std::vector<int> vecBe;
 	static std::vector<int> vecCl;
         static std::vector<double> vecEnergy;
 
